@@ -1,0 +1,39 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DonacionService } from '../services/donacion/donacion.service';
+import { ProyectosService } from '../services/proyectos/proyectos.service';
+
+
+@Component({
+  selector: 'app-inversionista',
+  templateUrl: './inversionista.component.html',
+  styleUrls: ['./inversionista.component.css']
+})
+export class InversionistaComponent implements OnInit {
+
+  donacionForm: FormGroup;
+  proyectos: any[];
+
+  constructor(
+    public proyectoService : ProyectosService,
+    public donacionService: DonacionService,
+    public fb: FormBuilder
+  ) { }
+
+  ngOnInit(): void {
+    this.donacionForm = this.fb.group({
+      fecha: ['', Validators.required],
+      idProyecto: ['', Validators.required],
+      login: ['', Validators.required],
+      valorDonar: ['', Validators.required],
+    });
+
+    this.proyectoService.getAllProyects().subscribe(response =>{this.proyectos = response} );
+  };
+
+  addDonacion(): void {
+    this.donacionService.addDonacion(this.donacionForm.value).subscribe(resp =>{
+      alert(JSON.stringify(resp));
+    });
+  }
+}

@@ -1,0 +1,135 @@
+<h2 class="text-center">Añadir proyecto</h2>
+<p class="text-center">
+  Escriba los datos correspondientes para añadir un proyecto en la app
+</p>
+
+<div class="formularioRegistroProyecto">
+  <form [formGroup]="proyectoForm" (ngSubmit)="addProyecto()">
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingInput"
+        placeholder="Leave a comment here"
+        formControlName="responsable"
+      />
+      <label for="floatingInput">Responsable del proyecto</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingInput"
+        placeholder="Leave a comment here"
+        formControlName="nombre"
+      />
+      <label for="floatingInput">Nombre del proyecto</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingInput"
+        placeholder="Leave a comment here"
+        formControlName="fechaInicio"
+      />
+      <label for="floatingInput">Fecha de inicio</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingInput"
+        placeholder="Leave a comment here"
+        formControlName="fechaLimite"
+      />
+      <label for="floatingInput">Fecha limite</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingInput"
+        placeholder="Leave a comment here"
+        formControlName="cantidadRecaudar"
+      />
+      <label for="floatingInput">Cantidad a recaudar</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingInput"
+        placeholder="Leave a comment here"
+        formControlName="cantidadRecaudada"
+      />
+      <label for="floatingInput">Cantidad recaudada</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingInput"
+        placeholder="Leave a comment here"
+        formControlName="tipoProyecto"
+      />
+      <label for="floatingInput">Tipo de proyecto</label>
+    </div>
+    <div class="form-floating mb-3">
+      <select
+        class="form-select"
+        id="floatingSelect"
+        aria-label="Floating label select example"
+        formControlName="estado"
+      >
+        <option value="Activo">Activo</option>
+        <option value="Cierre">Cierre</option>
+      </select>
+      <label for="floatingSelect">Estado del proyecto</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingInput"
+        placeholder="Leave a comment here"
+        formControlName="descripcion"
+      />
+      <label for="floatingInput">Descripcion</label>
+    </div>
+    <button type="submit" class="btn btn-info my-4">Aceptar</button>
+  </form>
+</div>
+
+<h2 class="text-center">Cambiar estado del proyecto</h2>
+<p class="text-center">
+  Escriba los datos correspondientes para cambiar el estado de un proyecto en la app
+</p>
+
+<div class="formularioCambiarEstado">
+  <form [formGroup]="actualizarEstadoForm" (ngSubmit)="cambiarEstado()">
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingInput"
+        placeholder="Leave a comment here"
+        formControlName="idProyecto"
+      />
+      <label for="floatingInput">Id del proyecto</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingInput"
+        placeholder="Leave a comment here"
+        formControlName="login"
+      />
+      <label for="floatingInput">Nombre de usuario</label>
+    </div>
+    <div class="form-floating mb-3">
+      <select
+        class="form-select"
+        id="floatingSelect"
+        aria-label="Floating label select example"
+        formControlName="estado"
+      >
+        <option value="Activo">Activo</option>
+        <option value="Cierre">Cierre</option>
+      </select>
+      <label for="floatingSelect">Estado del proyecto</label>
+    </div>
+    <button type="submit" class="btn btn-info my-4">Aceptar</button>
+  </form>
+</div>

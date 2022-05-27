@@ -7,10 +7,18 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { EmprendedorComponent } from './emprendedor/emprendedor.component';
+import { InversionistaComponent } from './inversionista/inversionista.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmprendedorComponent,
+    InversionistaComponent,
+    UsuarioComponent,
+    EstadisticasComponent
   ],
   imports: [
     HttpClientModule,

@@ -6,9 +6,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UsuariosService {
-
   private API_SERVER = "http://localhost:8080/user/";
-
+  
   constructor(private httpClient: HttpClient) { }
 
   public getAllUsuarios(): Observable<any> {
@@ -16,6 +15,6 @@ export class UsuariosService {
   }
 
   public addUsuario(usuario: any): Observable<any> {
-    return this.httpClient.post("http://localhost:8080/user/addUser", usuario);
+    return this.httpClient.post(this.API_SERVER + "addUser/", usuario);
   }
 }
