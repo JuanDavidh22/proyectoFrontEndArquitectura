@@ -10,6 +10,7 @@ import { UsuariosService } from '../services/usuarios/usuarios.service';
 export class UsuarioComponent implements OnInit {
 
   usuarioForm: FormGroup;
+  actualizarUsuarioForm: FormGroup;
   usuarios: any[];
 
   constructor(
@@ -27,16 +28,27 @@ export class UsuarioComponent implements OnInit {
       nombres: ['', Validators.required],
       apellidos: ['', Validators.required],
       email: ['', Validators.required],
-    }
-    );
+    });
+    this.actualizarUsuarioForm = this.fb.group({
+      login: ['', Validators.required],
+      documento: ['', Validators.required],
+      nombres: ['', Validators.required],
+      apellidos: ['', Validators.required],
+      email: ['', Validators.required],
+    })
     this.usuariosService.getAllUsuarios().subscribe(response =>{this.usuarios = response} );
   }
 
   guardarUsuario(): void {
     this.usuariosService.addUsuario(this.usuarioForm.value).subscribe(resp => {
-      console.log(this.usuarioForm.value);
+      alert(JSON.stringify(resp));
     })
     this.usuarios.push(this.usuarioForm.value);
   }
 
+  actualizarUsuario(): void {
+    this.usuariosService.actualizarUsuario(this.actualizarUsuarioForm.value).subscribe(resp => {
+      alert(JSON.stringify(resp));
+    })
+  }
 }

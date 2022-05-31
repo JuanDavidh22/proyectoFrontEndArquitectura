@@ -12,7 +12,9 @@ import { ProyectosService } from '../services/proyectos/proyectos.service';
 export class InversionistaComponent implements OnInit {
 
   donacionForm: FormGroup;
+  donacionPorUsuarioForm: FormGroup;
   proyectos: any[];
+  proyectosPorUsuario: any[];
 
   constructor(
     public proyectoService : ProyectosService,
@@ -27,13 +29,22 @@ export class InversionistaComponent implements OnInit {
       login: ['', Validators.required],
       valorDonar: ['', Validators.required],
     });
-
+    this.donacionPorUsuarioForm = this.fb.group({
+      login: ['', Validators.required]
+    })
     this.proyectoService.getAllProyects().subscribe(response =>{this.proyectos = response} );
   };
 
   addDonacion(): void {
     this.donacionService.addDonacion(this.donacionForm.value).subscribe(resp =>{
       alert(JSON.stringify(resp));
+    });
+  }
+
+  getDonacionPorUsuario(): void {
+    this.donacionService.getDonacionPorUsuario(this.donacionPorUsuarioForm.value.login).subscribe(resp =>{
+      this.proyectosPorUsuario = resp;
+      console.log(resp);
     });
   }
 }

@@ -12,13 +12,26 @@ export class EstadisticasComponent implements OnInit {
 
   valorEsperadoPromedio : any;
   valorPromedioFinanciado : any;
+  idProyectoForm : any;
+  donacionPromedioPorProyecto : any;
+
   constructor(
-    public estadisticasService : EstadisticasService
+    public estadisticasService : EstadisticasService,
+    public fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
+    this.idProyectoForm = this.fb.group({
+      idProyecto: ['', Validators.required]
+    });
    this.getValorPromedioFinanciado()
    this.getValorEsperadoPromedio()
+  }
+
+  getValorAcumuladoDonacionesAUnProyecto(){
+    this.estadisticasService.getValorAcumuladoDonacionesAUnProyecto(this.idProyectoForm.value.idProyecto).subscribe(resp =>{
+      this.donacionPromedioPorProyecto = JSON.parse(JSON.stringify(resp)).valorPromedioFinanciado;
+    });
   }
 
   getValorPromedioFinanciado() {
@@ -26,9 +39,11 @@ export class EstadisticasComponent implements OnInit {
       this.valorPromedioFinanciado = JSON.parse(JSON.stringify(resp)).valorPromedioFinanciado
     );
   }
+
   getValorEsperadoPromedio() {
     this.estadisticasService.getValorEsperadoPromedio().subscribe(resp => 
       this.valorEsperadoPromedio = JSON.parse(JSON.stringify(resp)).ValorEsperadoPromedio
     );
   }
 }
+

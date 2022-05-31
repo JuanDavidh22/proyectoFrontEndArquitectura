@@ -8,7 +8,7 @@
     <div class="form-floating mb-3">
       <input
         class="form-control"
-        id="floatingInput"
+        id="floatingNombres"
         placeholder="Leave a comment here"
         formControlName="nombres"
       />
@@ -17,7 +17,7 @@
     <div class="form-floating mb-3">
       <input
         class="form-control"
-        id="floatingInput"
+        id="floatingApellidos"
         placeholder="Leave a comment here"
         formControlName="apellidos"
       />
@@ -26,7 +26,7 @@
     <div class="form-floating mb-3">
       <input
         class="form-control"
-        id="floatingInput"
+        id="floatingEmail"
         placeholder="Leave a comment here"
         formControlName="email"
       />
@@ -35,7 +35,7 @@
     <div class="form-floating mb-3">
       <input
         class="form-control"
-        id="floatingInput"
+        id="floatingDocumento"
         placeholder="Leave a comment here"
         formControlName="documento"
       />
@@ -57,7 +57,7 @@
     <div class="form-floating mb-3">
       <input
         class="form-control"
-        id="floatingInput"
+        id="floatingLogin"
         placeholder="Leave a comment here"
         formControlName="login"
       />
@@ -105,4 +105,62 @@
       </tr>
     </tbody>
   </table>
+</div>
+
+<br/>
+
+<h2 class="text-center">Actualizar Usuario</h2>
+<p class="text-center">
+  Escriba los datos correspondientes para actualizar el usuario en la app
+</p>
+
+<div class="actualizarUsuario">
+  <form [formGroup]="actualizarUsuarioForm" (ngSubmit)="actualizarUsuario()">
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingActualizarNombres"
+        placeholder="Leave a comment here"
+        formControlName="nombres"
+      />
+      <label for="floatingInput">Nombres</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingActualizarApellidos"
+        placeholder="Leave a comment here"
+        formControlName="apellidos"
+      />
+      <label for="floatingInput">Apellidos</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingActualizarEmail"
+        placeholder="Leave a comment here"
+        formControlName="email"
+      />
+      <label for="floatingInput">Email</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingActualizarDocumento"
+        placeholder="Leave a comment here"
+        formControlName="documento"
+      />
+      <label for="floatingInput">Numero de documento</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingActualizarLogin"
+        placeholder="Leave a comment here"
+        formControlName="login"
+      />
+      <label for="floatingInput">Nombre de login</label>
+    </div>
+    <button type="submit" class="btn btn-info my-4">Aceptar</button>
+  </form>
 </div>

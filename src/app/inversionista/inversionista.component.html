@@ -80,3 +80,49 @@
     <button type="submit" class="btn btn-info my-4">Aceptar</button>
   </form>
 </div>
+
+<br/>
+<h2 class="text-center">Donaciones por Financiador</h2>
+<p class="text-center">
+  Escriba los datos correspondientes para obtener las donaciones
+</p>
+
+<br/>
+<div class="formularioDonacionesPorUsuario">
+  <form [formGroup]="donacionPorUsuarioForm" (ngSubmit)="getDonacionPorUsuario()">
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="floatingLogin"
+        placeholder="Leave a comment here"
+        formControlName="login"
+      />
+      <label for="floatingInput">Nombre de usuario</label>
+    </div>
+    <button type="submit" class="btn btn-info my-4">Aceptar</button>
+  </form>
+</div>
+
+<div>
+  <table class="table table-striped table table-bordered text-center">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Fecha de donacion</th>
+        <th>Id del proyecto</th>
+        <th>Nombre de usuario</th>
+        <th>Valor donado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of proyectosPorUsuario">
+        <th>{{ item.id }}</th>
+        <th>{{ item.fecha }}</th>
+        <th>{{ item.idProyecto }}</th>
+        <th>{{ item.login }}</th>
+        <th>{{ item.valorDonar }}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

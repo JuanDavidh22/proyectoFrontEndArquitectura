@@ -17,4 +17,8 @@ export class UsuariosService {
   public addUsuario(usuario: any): Observable<any> {
     return this.httpClient.post(this.API_SERVER + "addUser/", usuario);
   }
+
+  public actualizarUsuario(usuario: any): Observable<any> {
+    return this.httpClient.post(this.API_SERVER + "actualizarUsuario/", usuario);
+  }
 }

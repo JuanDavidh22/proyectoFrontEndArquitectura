@@ -18,5 +18,7 @@ export class DonacionService {
     return this.httpClient.post(this.API_SERVER + "addDonacion", donacion);
   }
 
-
+  public getDonacionPorUsuario(donacion: String): Observable<any> {
+    return this.httpClient.get(this.API_SERVER + "getDonaciones/" + donacion);
+  }
 }
